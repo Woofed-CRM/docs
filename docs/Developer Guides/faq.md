@@ -23,8 +23,8 @@ Link is: [https://discord.com/invite/yqCsdDZxDQ](https://discord.com/invite/yqCs
 
 ### What is the latest version?
 
-Woofed is in beta so updates are constantly, you can check the latest in the Github repository: http://github.com/douglara/woofed-crm\
-\
+Woofed is in beta so updates are constantly, you can check the latest in the Github repository: http://github.com/douglara/woofed-crm
+
 Or on Dockerhub at: https://hub.docker.com/r/douglara/woofedcrm/tags
 
 
