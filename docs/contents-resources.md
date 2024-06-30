@@ -1,11 +1,10 @@
 ---
-sidebar_label: "Contents about Woofed"
-title: "Contents about Woofed"
+sidebar_label: "Contents resources"
+title: "Contents resources"
 sidebar_position: 4
 ---
 
-
-In this session we list places and content created about the project.
+In this session we list places and content created about project.
 
 ## Community Links
 
