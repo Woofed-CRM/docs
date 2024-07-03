@@ -31,3 +31,7 @@ In this session we list places and content created about project.
 
 - [Guia Prático: Instalação Rápida do Woofed CRM Para Gestão de Clientes](https://www.youtube.com/watch?v=VJ8jwR6jCy8)
 
+## André Marques
+
+- [Como instalar Woofed no easypanel de maneira facil](https://www.youtube.com/watch?v=bxoN6qtuxOU)
+
