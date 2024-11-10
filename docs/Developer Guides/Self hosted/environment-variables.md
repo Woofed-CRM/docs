@@ -15,8 +15,8 @@ title: "Environment Variables"
 | MOTOR_AUTH_PASSWORD | lovewoofed | Motor admin access password |
 | LANGUAGE  | en | Default app language, availables: `pt-BR, es, en` |
 | DEFAULT_TIMEZONE  | brasilia | Default app timezone. Timezone list: `https://gist.github.com/eikes/5a64b661022c756bd6522ed94770e2a6` |
-| EVOLUTION_API_ENDPOINT  |  | EvolutionAPI endpoint (ex: `https://evolution-api.com/`). Obs: must be set for WhatsApp integration to function correctly. |
-| EVOLUTION_API_ENDPOINT_TOKEN  |  | EvolutionAPI global key. Obs: must be set for WhatsApp integration to function correctly. |
+| EVOLUTION_API_ENDPOINT  |  | EvolutionAPI (versions below v2.0) endpoint (ex: `https://evolution-api.com/`). Obs: must be set for WhatsApp integration to function correctly. |
+| EVOLUTION_API_ENDPOINT_TOKEN  |  | EvolutionAPI (versions below v2.0) global key. Obs: must be set for WhatsApp integration to function correctly. |
 | VAPID_PUBLIC_KEY  |  | Public key used for VAPID (Voluntary Application Server Identification) authentication in web push notifications |
 | VAPID_PRIVATE_KEY  |  | Private key used for VAPID (Voluntary Application Server Identification) authentication in web push notifications |
 | OPENAI_API_KEY  |  | API key for authenticating OpenAI’s integrations |
