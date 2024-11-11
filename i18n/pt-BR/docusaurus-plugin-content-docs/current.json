@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Developer Guides": {
+    "message": "Guia do Desenvolvedor",
+    "description": "The label for category Developer Guides in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Self hosted": {
+    "message": "Auto Hospedado",
+    "description": "The label for category Self hosted in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Install": {
+    "message": "Instalação",
+    "description": "The label for category Install in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Storage": {
+    "message": "Armazenamento",
+    "description": "The label for category Storage in sidebar tutorialSidebar"
+  }
+}

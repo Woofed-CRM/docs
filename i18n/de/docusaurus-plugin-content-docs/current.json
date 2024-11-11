@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Nächste",
+    "description": "Das Label für die aktuelle Version"
+  },
+  "sidebar.tutorialSidebar.category.Developer Guides": {
+    "message": "Entwicklerhandbücher",
+    "description": "Das Label für die Kategorie Entwicklerhandbücher in der Seitenleiste tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.API": {
+    "message": "API",
+    "description": "Das Label für die Kategorie API in der Seitenleiste tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Self hosted": {
+    "message": "Selbst gehostet",
+    "description": "Das Label für die Kategorie Selbst gehostet in der Seitenleiste tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Install": {
+    "message": "Installieren",
+    "description": "Das Label für die Kategorie Installieren in der Seitenleiste tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Storage": {
+    "message": "Speicher",
+    "description": "Das Label für die Kategorie Speicher in der Seitenleiste tutorialSidebar"
+  }
+}
