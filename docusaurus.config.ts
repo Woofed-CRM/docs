@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -21,12 +21,41 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // i18n configuration
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'pt-BR', 'es', 'de'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+      'pt-BR': {
+        label: 'Português (Brasil)',
+        direction: 'ltr',
+        htmlLang: 'pt-BR',
+        calendar: 'gregory',
+        path: 'pt-BR',
+      },
+      es: {
+        label: 'Español',
+        direction: 'ltr',
+        htmlLang: 'es-ES',
+        calendar: 'gregory',
+        path: 'es',
+      },
+      de: {
+        label: 'Deutsch',
+        direction: 'ltr',
+        htmlLang: 'de-DE',
+        calendar: 'gregory',
+        path: 'de',
+      },
+    },
   },
 
   presets: [
@@ -35,8 +64,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/Woofed-CRM/docs/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -56,10 +83,10 @@ const config: Config = {
     navbar: {
       title: 'Woofed CRM',
       logo: {
-        href: "https://woofedcrm.com",
+        href: 'https://woofedcrm.com',
         alt: 'Woofed CRM Logo',
         src: 'img/logo.svg',
-        target: "_self",
+        target: '_self',
       },
       items: [
         {
@@ -72,6 +99,10 @@ const config: Config = {
           href: 'http://github.com/douglara/woofed-crm',
           label: 'GitHub',
           position: 'right',
+        },
+        {
+          type: "localeDropdown",
+          position: "left"
         },
       ],
     },
