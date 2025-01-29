@@ -32,17 +32,17 @@ services:
       placement:
         constraints:
           - node.role == manager
-      labels:
-        - traefik.enable=true
-        - traefik.http.routers.woofedcrm.rule=Host(`easy.woofedcrm.com`) # Update for you external url
-        - traefik.http.routers.woofedcrm.entrypoints=websecure
-        - traefik.http.routers.woofedcrm.tls.certresolver=le
-        - traefik.http.routers.woofedcrm.priority=1
-        - traefik.http.routers.woofedcrm.service=woofedcrm
-        - traefik.http.services.woofedcrm.loadbalancer.server.port=3001
-        - traefik.http.services.woofedcrm.loadbalancer.passhostheader=true 
-        - traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https
-        - traefik.http.routers.woofedcrm.middlewares=sslheader@docker
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.woofedcrm.rule=Host(`easy.woofedcrm.com`) # Update for you external url
+      - traefik.http.routers.woofedcrm.entrypoints=websecure
+      - traefik.http.routers.woofedcrm.tls.certresolver=le
+      - traefik.http.routers.woofedcrm.priority=1
+      - traefik.http.routers.woofedcrm.service=woofedcrm
+      - traefik.http.services.woofedcrm.loadbalancer.server.port=3001
+      - traefik.http.services.woofedcrm.loadbalancer.passhostheader=true 
+      - traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https
+      - traefik.http.routers.woofedcrm.middlewares=sslheader@docker
 
 volumes:
   woofedcrm_data:
