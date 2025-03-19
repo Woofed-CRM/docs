@@ -7,6 +7,10 @@ sidebar_position: 1
 
 This section provides guidance on setting Woofed CRM Community Easy install self-hosted edition with Portainer and Traefik 2.
 
+## Vídeo Tutorial
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/uyLTzoIqPl4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Stack
 
