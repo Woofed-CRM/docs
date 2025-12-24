@@ -8,7 +8,7 @@ In this session we list places and content created about project.
 
 ## Community Links
 
-- [Whatsapp oficial](https://chat.whatsapp.com/ESZgMl6t0IOIN5ZiHV3Hhm)
+- [Whatsapp oficial](https://chat.whatsapp.com/EWp6WCybUCy3iKeS4HwBJK)
 - [Discord oficial](https://discord.com/invite/yqCsdDZxDQ)
 
 ## Woofed Team
