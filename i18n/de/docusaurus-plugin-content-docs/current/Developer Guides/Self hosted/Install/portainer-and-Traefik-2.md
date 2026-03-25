@@ -37,7 +37,7 @@ services:
         - traefik.http.routers.woofedcrm.tls.certresolver=le
         - traefik.http.routers.woofedcrm.priority=1
         - traefik.http.routers.woofedcrm.service=woofedcrm
-        - traefik.http.services.woofedcrm.loadbalancer.server.port=3001
+        - traefik.http.services.woofedcrm.loadbalancer.server.port=80
         - traefik.http.services.woofedcrm.loadbalancer.passhostheader=true
         - traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https
         - traefik.http.routers.woofedcrm.middlewares=sslheader@docker

@@ -10,6 +10,7 @@ title: "Umgebungsvariablen"
 | DATABASE_URL <span style={{color: '#ef5151'}}>\*</span> |  | Datenbank-URL (z. B. `postgres://pg_benutzer:pg_passwort@pg_host:pg_port/db_name`) |
 | REDIS_URL <span style={{color: '#ef5151'}}>\*</span> |  | Redis-URL (z. B. `redis://:redis_passwort@redis_host:6379/0`) |
 | FRONTEND_URL <span style={{color: '#ef5151'}}>\*</span> |  | Basis-URL der App. Sollte eine öffentlich zugängliche URL sein (z. B. `https://app.woofedcrm.com`) |
+| PORT | 80 | Port, auf dem die Anwendung ausgeführt wird (z. B. `3000`, `8080`) |
 | ENABLE_USER_SIGNUP | false | Ermöglicht neue Benutzeranmeldungen. |
 | MOTOR_AUTH_USERNAME | lovewoofed | Benutzer für den Admin-Zugang zum Motor |
 | MOTOR_AUTH_PASSWORD | lovewoofed | Passwort für den Admin-Zugang zum Motor |
