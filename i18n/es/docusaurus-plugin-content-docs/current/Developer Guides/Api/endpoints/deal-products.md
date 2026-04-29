@@ -59,17 +59,52 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deal_products" \
 
 ### Ejemplo de respuesta — `201 Created`
 
+La respuesta también devuelve el **product** y el **deal** pertenecientes al deal product.
+
 ```json
 {
   "id": 17,
-  "deal_id": 1,
   "product_id": 1,
-  "quantity": 2,
-  "unit_amount_in_cents": 1000035,
-  "product_name": "Auto",
-  "product_identifier": "SNS895SASXVDW",
+  "deal_id": 1,
   "created_at": "2025-01-15T10:30:00Z",
-  "updated_at": "2025-01-15T10:30:00Z"
+  "updated_at": "2025-01-15T10:30:00Z",
+  "unit_amount_in_cents": 1000035,
+  "product_identifier": "SNS895SASXVDW",
+  "product_name": "Auto",
+  "total_amount_in_cents": 2000070,
+  "quantity": 2,
+  "account_id": 1,
+  "product": {
+    "id": 1,
+    "identifier": "SNS895SASXVDW",
+    "amount_in_cents": 1000035,
+    "quantity_available": 2,
+    "description": "Auto lindo",
+    "name": "Auto",
+    "custom_attributes": {},
+    "additional_attributes": {},
+    "created_at": "2025-01-12T18:21:03Z",
+    "updated_at": "2025-01-12T18:21:03Z",
+    "account_id": 1
+  },
+  "deal": {
+    "total_deal_products_amount_in_cents": 2000070,
+    "contact_id": 1,
+    "stage_id": 1,
+    "pipeline_id": 1,
+    "id": 1,
+    "name": "Deal 1",
+    "status": "open",
+    "custom_attributes": {},
+    "created_at": "2025-01-12T18:20:50Z",
+    "updated_at": "2025-01-15T10:30:00Z",
+    "position": 1,
+    "created_by_id": null,
+    "lost_at": null,
+    "won_at": null,
+    "lost_reason": "",
+    "account_id": 1
+  }
 }
 ```
 
@@ -107,17 +142,52 @@ curl -X GET "https://app.woofedcrm.com/api/v1/accounts/1/deal_products/1" \
 
 ### Ejemplo de respuesta — `200 OK`
 
+La respuesta también devuelve el **product** y el **deal** pertenecientes al deal product.
+
 ```json
 {
   "id": 1,
-  "deal_id": 1,
   "product_id": 1,
-  "quantity": 1,
-  "unit_amount_in_cents": 150000,
-  "product_name": "Auto",
-  "product_identifier": "CAR-15632",
+  "deal_id": 1,
   "created_at": "2025-01-12T18:21:03Z",
-  "updated_at": "2025-01-12T18:21:03Z"
+  "updated_at": "2025-01-12T18:21:03Z",
+  "unit_amount_in_cents": 150000,
+  "product_identifier": "CAR-15632",
+  "product_name": "Auto",
+  "total_amount_in_cents": 150000,
+  "quantity": 1,
+  "account_id": 1,
+  "product": {
+    "id": 1,
+    "identifier": "CAR-15632",
+    "amount_in_cents": 150000,
+    "quantity_available": 2,
+    "description": "Auto lindo",
+    "name": "Auto",
+    "custom_attributes": {},
+    "additional_attributes": {},
+    "created_at": "2025-01-12T18:21:00Z",
+    "updated_at": "2025-01-12T18:21:00Z",
+    "account_id": 1
+  },
+  "deal": {
+    "total_deal_products_amount_in_cents": 150000,
+    "contact_id": 1,
+    "stage_id": 1,
+    "pipeline_id": 1,
+    "id": 1,
+    "name": "Deal 1",
+    "status": "open",
+    "custom_attributes": {},
+    "created_at": "2025-01-12T18:20:50Z",
+    "updated_at": "2025-01-12T18:21:03Z",
+    "position": 1,
+    "created_by_id": null,
+    "lost_at": null,
+    "won_at": null,
+    "lost_reason": "",
+    "account_id": 1
+  }
 }
 ```
 
@@ -161,16 +231,52 @@ curl -X PUT "https://app.woofedcrm.com/api/v1/accounts/1/deal_products/1" \
 
 ### Ejemplo de respuesta — `200 OK`
 
+La respuesta también devuelve el **product** y el **deal** pertenecientes al deal product.
+
 ```json
 {
   "id": 1,
-  "deal_id": 1,
   "product_id": 1,
-  "quantity": 3,
+  "deal_id": 1,
+  "created_at": "2025-01-12T18:21:03Z",
+  "updated_at": "2025-01-20T11:42:18Z",
   "unit_amount_in_cents": 150000,
-  "product_name": "Auto",
   "product_identifier": "CAR-15632",
-  "updated_at": "2025-01-20T11:42:18Z"
+  "product_name": "Auto",
+  "total_amount_in_cents": 450000,
+  "quantity": 3,
+  "account_id": 1,
+  "product": {
+    "id": 1,
+    "identifier": "CAR-15632",
+    "amount_in_cents": 150000,
+    "quantity_available": 2,
+    "description": "Auto lindo",
+    "name": "Auto",
+    "custom_attributes": {},
+    "additional_attributes": {},
+    "created_at": "2025-01-12T18:21:00Z",
+    "updated_at": "2025-01-12T18:21:00Z",
+    "account_id": 1
+  },
+  "deal": {
+    "total_deal_products_amount_in_cents": 450000,
+    "contact_id": 1,
+    "stage_id": 1,
+    "pipeline_id": 1,
+    "id": 1,
+    "name": "Deal 1",
+    "status": "open",
+    "custom_attributes": {},
+    "created_at": "2025-01-12T18:20:50Z",
+    "updated_at": "2025-01-20T11:42:18Z",
+    "position": 1,
+    "created_by_id": null,
+    "lost_at": null,
+    "won_at": null,
+    "lost_reason": "",
+    "account_id": 1
+  }
 }
 ```
 
