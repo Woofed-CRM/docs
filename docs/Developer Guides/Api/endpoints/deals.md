@@ -87,6 +87,12 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals" \
   "pipeline_id": 1,
   "contact_id": 1,
   "position": 1,
+  "created_by_id": 5,
+  "total_deal_products_amount_in_cents": 0,
+  "lost_at": null,
+  "won_at": null,
+  "lost_reason": "",
+  "account_id": 1,
   "custom_attributes": {
     "source": "Website",
     "campaign": "Google Ads"
@@ -154,20 +160,39 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/search" \
 ### Example response — `200 OK`
 
 ```json
-[
-  {
-    "id": 27,
-    "name": "Lead site: Rubel",
-    "status": "open",
-    "stage_id": 1,
-    "pipeline_id": 1,
-    "contact_id": 1,
-    "position": 1,
-    "custom_attributes": { "source": "Website" },
-    "created_at": "2025-01-12T18:21:03Z",
-    "updated_at": "2025-01-12T18:21:03Z"
+{
+  "data": [
+    {
+      "id": 27,
+      "name": "Lead site: Rubel",
+      "status": "open",
+      "stage_id": 1,
+      "contact_id": 1,
+      "custom_attributes": { "source": "Website" },
+      "created_at": "2025-01-12T18:21:03Z",
+      "updated_at": "2025-01-12T18:21:03Z",
+      "pipeline_id": 1,
+      "position": 1,
+      "created_by_id": null,
+      "total_deal_products_amount_in_cents": 0,
+      "lost_at": null,
+      "won_at": null,
+      "lost_reason": "",
+      "account_id": 1
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "items": 1,
+    "count": 1,
+    "pages": 1,
+    "from": 1,
+    "last": 1,
+    "to": 1,
+    "prev": null,
+    "next": null
   }
-]
+}
 ```
 
 ### Possible errors
@@ -196,18 +221,82 @@ curl -X GET "https://app.woofedcrm.com/api/v1/accounts/1/deals/1" \
 
 ### Example response — `200 OK`
 
+The response also returns the **contact**, **stage**, **pipeline**, **deal_assignees** and **deal_products** belonging to the deal.
+
 ```json
 {
   "id": 1,
   "name": "Lead site: Rubel",
   "status": "open",
   "stage_id": 1,
-  "pipeline_id": 1,
   "contact_id": 1,
-  "position": 1,
   "custom_attributes": { "source": "Website" },
   "created_at": "2025-01-12T18:21:03Z",
-  "updated_at": "2025-01-12T18:21:03Z"
+  "updated_at": "2025-01-12T18:21:03Z",
+  "pipeline_id": 1,
+  "position": 1,
+  "created_by_id": null,
+  "total_deal_products_amount_in_cents": 0,
+  "lost_at": null,
+  "won_at": null,
+  "lost_reason": "",
+  "account_id": 1,
+  "contact": {
+    "id": 1,
+    "full_name": "Tim Maia",
+    "phone": "+555678606681",
+    "email": "sabina.lockman@robel.example",
+    "custom_attributes": {},
+    "additional_attributes": {},
+    "app_type": null,
+    "app_id": null,
+    "created_at": "2025-01-12T18:21:00Z",
+    "updated_at": "2025-01-12T18:21:00Z",
+    "account_id": 1,
+    "label_list": [],
+    "chatwoot_conversations_label_list": []
+  },
+  "stage": {
+    "id": 1,
+    "name": "Stage 1",
+    "pipeline_id": 1,
+    "position": 1,
+    "created_at": "2025-01-12T18:20:50Z",
+    "updated_at": "2025-01-12T18:20:50Z",
+    "account_id": 1
+  },
+  "pipeline": {
+    "id": 1,
+    "name": "sales",
+    "created_at": "2025-01-12T18:20:45Z",
+    "updated_at": "2025-01-12T18:20:46Z",
+    "account_id": 1
+  },
+  "deal_assignees": [
+    {
+      "id": 2,
+      "deal_id": 1,
+      "user_id": 9,
+      "created_at": "2025-01-12T18:21:05Z",
+      "updated_at": "2025-01-12T18:21:05Z",
+      "account_id": 1
+    }
+  ],
+  "deal_products": [
+    {
+      "id": 1,
+      "product_id": 4,
+      "deal_id": 1,
+      "created_at": "2025-01-12T18:21:06Z",
+      "updated_at": "2025-01-12T18:21:06Z",
+      "unit_amount_in_cents": 0,
+      "product_identifier": "",
+      "product_name": "",
+      "total_amount_in_cents": 0,
+      "quantity": 1,
+      "account_id": 1
+    }
+  ]
 }
 ```
 
@@ -264,8 +353,15 @@ curl -X PUT "https://app.woofedcrm.com/api/v1/accounts/1/deals/1" \
   "name": "Lead site: Rubel (Lost)",
   "status": "lost",
   "stage_id": 2,
-  "lost_reason": "Price too high",
+  "pipeline_id": 1,
+  "contact_id": 1,
+  "position": 1,
+  "created_by_id": 5,
+  "total_deal_products_amount_in_cents": 0,
   "lost_at": "2025-01-18T16:45:00Z",
+  "won_at": null,
+  "lost_reason": "Price too high",
+  "account_id": 1,
   "updated_at": "2025-01-18T16:45:00Z"
 }
 ```
@@ -327,6 +423,13 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/upsert" \
   "name": "Lead site: Rubel",
   "contact_id": 1,
   "status": "open",
+  "position": 1,
+  "created_by_id": 5,
+  "total_deal_products_amount_in_cents": 0,
+  "lost_at": null,
+  "won_at": null,
+  "lost_reason": "",
+  "account_id": 1,
   "custom_attributes": { "CPF": "123456789-87" },
   "created_at": "2025-01-15T10:30:00Z",
   "updated_at": "2025-01-20T11:42:18Z"
