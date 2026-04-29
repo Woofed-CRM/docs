@@ -78,9 +78,27 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
 {
   "id": 88,
   "deal_id": 1,
+  "contact_id": 1,
+  "app_type": null,
+  "app_id": null,
   "kind": "note",
-  "content": "Liguei para o cliente para discutir os próximos passos.",
-  "created_at": "2025-01-15T10:30:00Z"
+  "scheduled_at": null,
+  "done_at": null,
+  "from_me": true,
+  "status": null,
+  "custom_attributes": {},
+  "additional_attributes": {},
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "title": "",
+  "auto_done": false,
+  "account_id": 1,
+  "done": false,
+  "send_now": null,
+  "files": [],
+  "files_events": [],
+  "invalid_files": null,
+  "content": "Liguei para o cliente para discutir os próximos passos."
 }
 ```
 
@@ -123,12 +141,27 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
 {
   "id": 89,
   "deal_id": 1,
+  "contact_id": 1,
+  "app_type": null,
+  "app_id": null,
   "kind": "activity",
-  "title": "Ligação de follow-up",
-  "content": "Confirmar que a proposta foi recebida",
   "scheduled_at": "2025-01-20T14:00:00Z",
+  "done_at": null,
+  "from_me": true,
+  "status": null,
+  "custom_attributes": {},
+  "additional_attributes": {},
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "title": "Ligação de follow-up",
+  "auto_done": false,
+  "account_id": 1,
   "done": false,
-  "created_at": "2025-01-15T10:30:00Z"
+  "send_now": null,
+  "files": [],
+  "files_events": [],
+  "invalid_files": null,
+  "content": "Confirmar que a proposta foi recebida"
 }
 ```
 
@@ -184,6 +217,36 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
   }'
 ```
 
+### Exemplo de resposta — `201 Created`
+
+```json
+{
+  "id": 90,
+  "deal_id": 1,
+  "contact_id": 1,
+  "app_type": "Apps::Chatwoot",
+  "app_id": 6,
+  "kind": "chatwoot_message",
+  "scheduled_at": "2025-01-20T14:00:00Z",
+  "done_at": null,
+  "from_me": true,
+  "status": null,
+  "custom_attributes": {},
+  "additional_attributes": { "chatwoot_inbox_id": "62483" },
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "title": "Chatwoot Message",
+  "auto_done": false,
+  "account_id": 1,
+  "done": false,
+  "send_now": null,
+  "files": [],
+  "files_events": [],
+  "invalid_files": null,
+  "content": "Tudo certo?"
+}
+```
+
 ---
 
 ## 4. Enviar mensagem do Chatwoot imediatamente
@@ -216,6 +279,36 @@ Mesmo `kind` do anterior, mas **enviada imediatamente** com `send_now: true`.
 | `app_type` | Sim | `Apps::Chatwoot`. |
 | `app_id` | Sim | ID da integração Chatwoot. |
 | `additional_attributes.chatwoot_inbox_id` | Sim | Inbox de destino. |
+
+### Exemplo de resposta — `201 Created`
+
+```json
+{
+  "id": 91,
+  "deal_id": 1,
+  "contact_id": 1,
+  "app_type": "Apps::Chatwoot",
+  "app_id": 5,
+  "kind": "chatwoot_message",
+  "scheduled_at": null,
+  "done_at": "2025-01-15T10:30:00Z",
+  "from_me": true,
+  "status": null,
+  "custom_attributes": {},
+  "additional_attributes": { "chatwoot_inbox_id": "62483" },
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "title": "Chatwoot Message",
+  "auto_done": true,
+  "account_id": 1,
+  "done": true,
+  "send_now": true,
+  "files": [],
+  "files_events": [],
+  "invalid_files": null,
+  "content": "Tudo certo?"
+}
+```
 
 ---
 
@@ -263,6 +356,36 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
   }'
 ```
 
+### Exemplo de resposta — `201 Created`
+
+```json
+{
+  "id": 92,
+  "deal_id": 1,
+  "contact_id": 1,
+  "app_type": "Apps::EvolutionApi",
+  "app_id": 5,
+  "kind": "evolution_api_message",
+  "scheduled_at": "2025-01-20T14:00:00Z",
+  "done_at": null,
+  "from_me": true,
+  "status": null,
+  "custom_attributes": {},
+  "additional_attributes": {},
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "title": "Whatsapp Message",
+  "auto_done": false,
+  "account_id": 1,
+  "done": false,
+  "send_now": null,
+  "files": [],
+  "files_events": [],
+  "invalid_files": null,
+  "content": "Tudo certo?"
+}
+```
+
 ---
 
 ## 6. Enviar mensagem do WhatsApp imediatamente
@@ -296,6 +419,36 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
     "app_type": "Apps::EvolutionApi",
     "app_id": 5
   }'
+```
+
+### Exemplo de resposta — `201 Created`
+
+```json
+{
+  "id": 93,
+  "deal_id": 1,
+  "contact_id": 1,
+  "app_type": "Apps::EvolutionApi",
+  "app_id": 5,
+  "kind": "evolution_api_message",
+  "scheduled_at": null,
+  "done_at": "2025-01-15T10:30:00Z",
+  "from_me": true,
+  "status": null,
+  "custom_attributes": {},
+  "additional_attributes": {},
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "title": "Whatsapp Message",
+  "auto_done": true,
+  "account_id": 1,
+  "done": true,
+  "send_now": true,
+  "files": [],
+  "files_events": [],
+  "invalid_files": null,
+  "content": "Tudo certo?"
+}
 ```
 
 ---
