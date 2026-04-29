@@ -107,3 +107,9 @@ Es wird kein Body zurückgegeben.
 | --- | --- |
 | `401` | Token fehlt oder ungültig. |
 | `404` | Deal-Zuweisung in diesem Account nicht gefunden. |
+
+---
+
+## Verwandte Endpoints
+
+- [**Deal abrufen**](./deals#deal-abrufen) — um die `id` einer `deal_assignee` zu finden, rufen Sie den zugehörigen Deal mit `GET /api/v1/accounts/{account_id}/deals/{id}` ab. Die Antwort enthält ein Array `deal_assignees` mit allen Zuweisungen dieses Deals und allen Feldern (`id`, `deal_id`, `user_id`, …) — verwenden Sie die `id` daraus, um [Deal-Zuweisung löschen](#deal-zuweisung-löschen) aufzurufen.

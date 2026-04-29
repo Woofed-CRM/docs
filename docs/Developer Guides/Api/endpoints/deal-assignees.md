@@ -107,3 +107,9 @@ No body is returned.
 | --- | --- |
 | `401` | Missing or invalid token. |
 | `404` | Deal assignee not found in that account. |
+
+---
+
+## Related endpoints
+
+- [**Get deal**](./deals#get-deal) — to find the `id` of a `deal_assignee`, fetch the deal it belongs to with `GET /api/v1/accounts/{account_id}/deals/{id}`. The response includes a `deal_assignees` array with every assignee of that deal and all of their fields (`id`, `deal_id`, `user_id`, …) — use the `id` from there to call [Delete deal assignee](#delete-deal-assignee).

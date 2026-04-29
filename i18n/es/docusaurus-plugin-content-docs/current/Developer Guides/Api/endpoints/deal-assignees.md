@@ -107,3 +107,9 @@ No se devuelve body.
 | --- | --- |
 | `401` | Token ausente o inválido. |
 | `404` | Deal assignee no encontrado en esa cuenta. |
+
+---
+
+## Endpoints relacionados
+
+- [**Obtener negocio**](./deals#obtener-negocio) — para obtener el `id` de un `deal_assignee`, consulta el negocio al que pertenece con `GET /api/v1/accounts/{account_id}/deals/{id}`. La respuesta incluye un array `deal_assignees` con todos los asignados de ese negocio y todos sus campos (`id`, `deal_id`, `user_id`, …) — usa el `id` devuelto para llamar a [Eliminar asignado al negocio](#eliminar-asignado-al-negocio).
