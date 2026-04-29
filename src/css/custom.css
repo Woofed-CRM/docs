@@ -767,6 +767,10 @@ article header h1,
   transform: translateX(2px);
 }
 
+[data-theme='dark'] .menu__link:hover {
+  color: #ffffff;
+}
+
 .menu__link--active,
 .menu__link--active:hover {
   background: var(--ifm-menu-color-background-active);
