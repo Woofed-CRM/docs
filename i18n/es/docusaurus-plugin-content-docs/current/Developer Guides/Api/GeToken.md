@@ -6,25 +6,13 @@ sidebar_position: 4
 
 # Obtener Token
 
-Cada llamada a la API de Woofed CRM necesita un **JWT Bearer Token**. El token se genera desde el panel de administración y representa a un usuario específico — toda acción realizada con ese token queda registrada y autorizada como si ese usuario la hubiera ejecutado dentro de la UI.
+Cada llamada a la API de Woofed CRM necesita un **JWT Bearer Token**. El token se genera desde la página de detalles del usuario y representa a un usuario específico — toda acción realizada con ese token queda registrada y autorizada como si ese usuario la hubiera ejecutado dentro de la UI.
 
-## Paso a paso
+## Cómo obtener el token
 
-1. Ingresa a Woofed CRM con un **usuario admin**.
-2. Abre el panel de administración:
+Accede a la página de detalles del usuario en Woofed CRM y copia el token como se muestra a continuación:
 
-   ```
-   https://<tu-subdominio>/motor_admin
-   ```
-
-   En el cloud de Woofed CRM, normalmente es `https://app.woofedcrm.com/motor_admin`. En una instalación self-hosted, reemplaza el host por el tuyo.
-
-3. Haz clic en **`*` (Configuración)** en la parte superior del panel.
-4. Abre la sección **Usuarios**.
-5. Haz clic en **Agregar Columna** y completa:
-   - **Nombre:** `get_jwt_token`
-   - **Tipo:** `Solo lectura` (ReadOnly)
-6. Guarda la columna. La nueva columna aparecerá en la grilla de usuarios; el valor de esa celda, en la fila del usuario que quieres autenticar, **es tu token**.
+![Cómo obtener el token en la página de detalles del usuario](/img/get-token.gif)
 
 Copia ese valor y úsalo como `Bearer <token>` en cada petición — consulta [**Autenticación**](./authentication) para ejemplos.
 
@@ -34,6 +22,6 @@ Copia ese valor y úsalo como `Bearer <token>` en cada petición — consulta [*
 - Dónde poner la cabecera: [**Autenticación → Enviando el token**](./authentication#enviando-el-token)
 - Cómo mantenerlo seguro: [**Autenticación → Mejores prácticas de seguridad**](./authentication#mejores-prácticas-de-seguridad)
 
-:::caution No compartas esta columna con usuarios no admin
-La columna `get_jwt_token` muestra tokens de acceso completos. Asegúrate de que solo usuarios admin de confianza puedan ver la grilla de Usuarios en el panel de administración.
+:::caution Mantén tu token seguro
+El token concede acceso completo a la API en nombre de tu usuario. No lo compartas ni lo subas a repositorios públicos.
 :::
