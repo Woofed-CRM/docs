@@ -58,9 +58,11 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deal_assignees" \
 ```json
 {
   "id": 33,
-  "user_id": 1,
   "deal_id": 1,
-  "created_at": "2025-01-15T10:30:00Z"
+  "user_id": 1,
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
+  "account_id": 1
 }
 ```
 
