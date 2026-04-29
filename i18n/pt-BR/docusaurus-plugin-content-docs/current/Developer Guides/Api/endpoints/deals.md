@@ -114,6 +114,72 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals" \
 
 ---
 
+## Buscar negócios
+
+`POST /api/v1/accounts/{account_id}/deals/search`
+
+Busca negócios usando um objeto `query` no estilo Ransack. Veja [Estrutura da API → Busca](../api-structure#busca) para a lista completa de predicados.
+
+### Body
+
+```json
+{
+  "query": {
+    "name_cont": "Rubel",
+    "status_eq": "open",
+    "stage_id_eq": 1,
+    "pipeline_id_eq": 1,
+    "contact_id_eq": 42,
+    "created_at_gteq": "2025-01-01T00:00:00Z",
+    "updated_at_lteq": "2025-01-31T23:59:59Z",
+    "id_eq": 27
+  }
+}
+```
+
+### Exemplo de requisição
+
+```bash
+curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/search" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI" \
+  -d '{
+    "query": {
+      "name_cont": "Rubel",
+      "status_eq": "open"
+    }
+  }'
+```
+
+### Exemplo de resposta — `200 OK`
+
+```json
+[
+  {
+    "id": 27,
+    "name": "Lead site: Rubel",
+    "status": "open",
+    "stage_id": 1,
+    "pipeline_id": 1,
+    "contact_id": 1,
+    "position": 1,
+    "custom_attributes": { "source": "Website" },
+    "created_at": "2025-01-12T18:21:03Z",
+    "updated_at": "2025-01-12T18:21:03Z"
+  }
+]
+```
+
+### Possíveis erros
+
+| Status | Quando |
+| --- | --- |
+| `400` | JSON mal formatado. |
+| `401` | Token ausente ou inválido. |
+| `422` | Predicado desconhecido ou campo não pesquisável. |
+
+---
+
 ## Obter negócio
 
 `GET /api/v1/accounts/{account_id}/deals/{id}`

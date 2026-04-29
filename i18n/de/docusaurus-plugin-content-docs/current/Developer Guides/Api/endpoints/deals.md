@@ -114,6 +114,72 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals" \
 
 ---
 
+## Deals suchen
+
+`POST /api/v1/accounts/{account_id}/deals/search`
+
+Sucht Deals mit einem `query`-Objekt im Ransack-Stil. Die vollständige Prädikatsliste finden Sie in [API-Struktur → Suche](../api-structure#suche).
+
+### Body
+
+```json
+{
+  "query": {
+    "name_cont": "Rubel",
+    "status_eq": "open",
+    "stage_id_eq": 1,
+    "pipeline_id_eq": 1,
+    "contact_id_eq": 42,
+    "created_at_gteq": "2025-01-01T00:00:00Z",
+    "updated_at_lteq": "2025-01-31T23:59:59Z",
+    "id_eq": 27
+  }
+}
+```
+
+### Beispiel-Request
+
+```bash
+curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/search" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer IHR_TOKEN_HIER" \
+  -d '{
+    "query": {
+      "name_cont": "Rubel",
+      "status_eq": "open"
+    }
+  }'
+```
+
+### Beispiel-Antwort — `200 OK`
+
+```json
+[
+  {
+    "id": 27,
+    "name": "Lead site: Rubel",
+    "status": "open",
+    "stage_id": 1,
+    "pipeline_id": 1,
+    "contact_id": 1,
+    "position": 1,
+    "custom_attributes": { "source": "Website" },
+    "created_at": "2025-01-12T18:21:03Z",
+    "updated_at": "2025-01-12T18:21:03Z"
+  }
+]
+```
+
+### Mögliche Fehler
+
+| Status | Wann |
+| --- | --- |
+| `400` | JSON-Body ungültig. |
+| `401` | Token fehlt oder ungültig. |
+| `422` | Unbekanntes Prädikat oder nicht durchsuchbares Feld. |
+
+---
+
 ## Deal abrufen
 
 `GET /api/v1/accounts/{account_id}/deals/{id}`
