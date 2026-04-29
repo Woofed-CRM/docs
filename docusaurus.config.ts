@@ -81,11 +81,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Woofed CRM',
       logo: {
         href: 'https://woofedcrm.com',
-        alt: 'Woofed CRM Logo',
-        src: 'img/logo.svg',
+        alt: 'Woofed CRM',
+        src: 'img/woofed-logo.svg',
         target: '_self',
       },
       items: [
@@ -148,8 +147,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Woofed CRM, Inc. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
     },
   } satisfies Preset.ThemeConfig,
 };
