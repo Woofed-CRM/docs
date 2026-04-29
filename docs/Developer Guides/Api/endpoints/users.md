@@ -72,20 +72,35 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/users/search" \
 ### Example response — `200 OK`
 
 ```json
-[
-  {
-    "id": 123,
-    "email": "john.doe@example.com",
-    "full_name": "John Acme",
-    "phone": "+15551234567",
-    "language": "en",
-    "job_description": "ceo",
-    "avatar_url": "https://example.com/avatar.png",
-    "webpush_notify_on_event_expired": true,
-    "created_at": "2025-01-12T18:21:03Z",
-    "updated_at": "2025-01-12T18:21:03Z"
+{
+  "data": [
+    {
+      "id": 123,
+      "full_name": "John Acme",
+      "email": "john.doe@example.com",
+      "created_at": "2025-01-12T18:21:03Z",
+      "updated_at": "2025-01-12T18:21:03Z",
+      "phone": "+15551234567",
+      "language": "en",
+      "notifications": { "webpush_notify_on_event_expired": true },
+      "avatar_url": "https://example.com/avatar.png",
+      "job_description": "ceo",
+      "theme_preference": "system",
+      "account_id": 1
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "items": 1,
+    "count": 1,
+    "pages": 1,
+    "from": 1,
+    "last": 1,
+    "to": 1,
+    "prev": null,
+    "next": null
   }
-]
+}
 ```
 
 ### Possible errors
@@ -140,15 +155,17 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/users" \
 ```json
 {
   "id": 9,
-  "email": "tim@maia.com",
   "full_name": "Tim Maia",
+  "email": "tim@maia.com",
+  "created_at": "2025-01-15T10:30:00Z",
+  "updated_at": "2025-01-15T10:30:00Z",
   "phone": "+5541996910256",
   "language": "en",
+  "notifications": { "webpush_notify_on_event_expired": true },
   "avatar_url": "https://example.com/avatars/tim-maia.png",
   "job_description": "other",
-  "webpush_notify_on_event_expired": true,
-  "created_at": "2025-01-15T10:30:00Z",
-  "updated_at": "2025-01-15T10:30:00Z"
+  "theme_preference": "system",
+  "account_id": 1
 }
 ```
 
