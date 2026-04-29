@@ -82,7 +82,12 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/contacts" \
   "phone": "+5541996910256",
   "email": "tim@maia.com",
   "custom_attributes": { "city": "RJ" },
+  "additional_attributes": {},
+  "app_type": null,
+  "app_id": null,
+  "account_id": 1,
   "label_list": ["label1", "label2"],
+  "chatwoot_conversations_label_list": [],
   "created_at": "2025-01-15T10:30:00Z",
   "updated_at": "2025-01-15T10:30:00Z"
 }
@@ -145,18 +150,36 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/contacts/search" \
 ### Beispiel-Antwort — `200 OK`
 
 ```json
-[
-  {
-    "id": 42,
-    "full_name": "John Doe",
-    "phone": "+5511999999999",
-    "email": "john.doe@example.com",
-    "custom_attributes": { "city": "RJ" },
-    "label_list": ["vip"],
-    "created_at": "2025-01-12T18:21:03Z",
-    "updated_at": "2025-01-12T18:21:03Z"
+{
+  "data": [
+    {
+      "id": 42,
+      "full_name": "John Doe",
+      "phone": "+5511999999999",
+      "email": "john.doe@example.com",
+      "custom_attributes": { "city": "RJ" },
+      "additional_attributes": {},
+      "app_type": null,
+      "app_id": null,
+      "created_at": "2025-01-12T18:21:03Z",
+      "updated_at": "2025-01-12T18:21:03Z",
+      "account_id": 1,
+      "label_list": ["vip"],
+      "chatwoot_conversations_label_list": []
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "items": 1,
+    "count": 1,
+    "pages": 1,
+    "from": 1,
+    "last": 1,
+    "to": 1,
+    "prev": null,
+    "next": null
   }
-]
+}
 ```
 
 ### Mögliche Fehler
@@ -192,6 +215,8 @@ curl -X GET "https://app.woofedcrm.com/api/v1/accounts/1/contacts/1" \
 
 ### Beispiel-Antwort — `200 OK`
 
+Die Antwort enthält außerdem die zum Kontakt gehörenden **Deals** und **Events**.
+
 ```json
 {
   "id": 1,
@@ -199,9 +224,90 @@ curl -X GET "https://app.woofedcrm.com/api/v1/accounts/1/contacts/1" \
   "phone": "+5541996910256",
   "email": "tim@maia.com",
   "custom_attributes": { "city": "RJ" },
+  "additional_attributes": {},
+  "app_type": null,
+  "app_id": null,
+  "account_id": 1,
   "label_list": ["label1", "label2"],
+  "chatwoot_conversations_label_list": [],
   "created_at": "2025-01-12T18:21:03Z",
-  "updated_at": "2025-01-12T18:21:03Z"
+  "updated_at": "2025-01-12T18:21:03Z",
+  "deals": [
+    {
+      "id": 1,
+      "name": "Test Deal",
+      "status": "open",
+      "stage_id": 1,
+      "contact_id": 1,
+      "custom_attributes": {},
+      "created_at": "2025-01-12T18:21:05Z",
+      "updated_at": "2025-01-12T18:21:05Z",
+      "pipeline_id": 2,
+      "position": 1,
+      "created_by_id": null,
+      "total_deal_products_amount_in_cents": 0,
+      "lost_at": null,
+      "won_at": null,
+      "lost_reason": "",
+      "account_id": 1
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "deal_id": 1,
+      "contact_id": 1,
+      "app_type": null,
+      "app_id": null,
+      "kind": "deal_opened",
+      "scheduled_at": null,
+      "done_at": "2025-01-12T18:21:06Z",
+      "from_me": true,
+      "status": null,
+      "custom_attributes": {},
+      "additional_attributes": {
+        "stage_id": 1,
+        "deal_name": "Test Deal",
+        "stage_name": "Stage 1",
+        "pipeline_id": 2,
+        "pipeline_name": "sales"
+      },
+      "created_at": "2025-01-12T18:21:06Z",
+      "updated_at": "2025-01-12T18:21:06Z",
+      "title": "",
+      "auto_done": false,
+      "account_id": 1,
+      "done": true,
+      "send_now": null,
+      "files": [],
+      "files_events": [],
+      "invalid_files": null
+    },
+    {
+      "id": 2,
+      "deal_id": 1,
+      "contact_id": 1,
+      "app_type": null,
+      "app_id": null,
+      "kind": "activity",
+      "scheduled_at": null,
+      "done_at": null,
+      "from_me": null,
+      "status": null,
+      "custom_attributes": {},
+      "additional_attributes": {},
+      "created_at": "2025-01-12T18:21:07Z",
+      "updated_at": "2025-01-12T18:21:08Z",
+      "title": "Test Event",
+      "auto_done": false,
+      "account_id": 1,
+      "done": false,
+      "send_now": null,
+      "files": [],
+      "files_events": [],
+      "invalid_files": null
+    }
+  ]
 }
 ```
 
@@ -258,7 +364,12 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/contacts/upsert" \
   "phone": "+5541996910256",
   "email": "tim@maia.com",
   "custom_attributes": { "city": "RJ" },
+  "additional_attributes": {},
+  "app_type": null,
+  "app_id": null,
+  "account_id": 1,
   "label_list": ["label1", "label2"],
+  "chatwoot_conversations_label_list": [],
   "created_at": "2025-01-15T10:30:00Z",
   "updated_at": "2025-01-20T11:42:18Z"
 }
