@@ -287,3 +287,10 @@ La respuesta también devuelve el **product** y el **deal** pertenecientes al de
 | `401` | Token ausente o inválido. |
 | `404` | Deal product no encontrado. |
 | `422` | `quantity` o `unit_amount_in_cents` inválido. |
+
+---
+
+## Endpoints relacionados
+
+- [**Obtener producto**](./products#obtener-producto) — para obtener el `id` de un `deal_product`, consulta el producto con `GET /api/v1/accounts/{account_id}/products/{id}`. La respuesta incluye un array `deal_products` con todas las asociaciones de ese producto y todos sus campos (`id`, `product_id`, `deal_id`, …).
+- [**Obtener negocio**](./deals#obtener-negocio) — alternativamente, consulta el negocio con `GET /api/v1/accounts/{account_id}/deals/{id}`. La respuesta también incluye un array `deal_products` con todas las asociaciones de ese negocio — usa el `id` devuelto para llamar a [Obtener producto del negocio](#obtener-producto-del-negocio) o [Actualizar producto del negocio](#actualizar-producto-del-negocio).

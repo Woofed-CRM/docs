@@ -287,3 +287,10 @@ Die Antwort enthält außerdem das zum Deal-Produkt gehörende **Product** und *
 | `401` | Token fehlt oder ungültig. |
 | `404` | Deal-Produkt nicht gefunden. |
 | `422` | `quantity` oder `unit_amount_in_cents` ungültig. |
+
+---
+
+## Verwandte Endpoints
+
+- [**Produkt abrufen**](./products#produkt-abrufen) — um die `id` eines `deal_product` zu finden, rufen Sie das Produkt mit `GET /api/v1/accounts/{account_id}/products/{id}` ab. Die Antwort enthält ein Array `deal_products` mit allen Verknüpfungen dieses Produkts und allen Feldern (`id`, `product_id`, `deal_id`, …).
+- [**Deal abrufen**](./deals#deal-abrufen) — alternativ rufen Sie den Deal mit `GET /api/v1/accounts/{account_id}/deals/{id}` ab. Die Antwort enthält ebenfalls ein Array `deal_products` mit allen Verknüpfungen dieses Deals — verwenden Sie die `id` daraus, um [Deal-Produkt abrufen](#deal-produkt-abrufen) oder [Deal-Produkt aktualisieren](#deal-produkt-aktualisieren) aufzurufen.

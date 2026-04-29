@@ -287,3 +287,10 @@ The response also returns the **product** and **deal** belonging to the deal pro
 | `401` | Missing or invalid token. |
 | `404` | Deal product not found. |
 | `422` | Invalid `quantity` or `unit_amount_in_cents`. |
+
+---
+
+## Related endpoints
+
+- [**Get product**](./products#get-product) — to find the `id` of a `deal_product`, fetch the product with `GET /api/v1/accounts/{account_id}/products/{id}`. The response includes a `deal_products` array with every association of that product and all of their fields (`id`, `product_id`, `deal_id`, …).
+- [**Get deal**](./deals#get-deal) — alternatively, fetch the deal with `GET /api/v1/accounts/{account_id}/deals/{id}`. The response also includes a `deal_products` array with every association of that deal — use the `id` from there to call [Get deal product](#get-deal-product) or [Update deal product](#update-deal-product).
