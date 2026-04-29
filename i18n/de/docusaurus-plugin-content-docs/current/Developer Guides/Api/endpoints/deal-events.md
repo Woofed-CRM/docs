@@ -188,7 +188,7 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
 
 ## 4. Chatwoot-Nachricht sofort senden
 
-Selber `kind`, aber **sofort gesendet** mit `send_now: true` und einer bestehenden Conversation-ID.
+Selber `kind`, aber **sofort gesendet** mit `send_now: true`.
 
 ### Body
 
@@ -201,8 +201,7 @@ Selber `kind`, aber **sofort gesendet** mit `send_now: true` und einer bestehend
   "app_type": "Apps::Chatwoot",
   "app_id": 5,
   "additional_attributes": {
-    "chatwoot_inbox_id": "62483",
-    "chatwoot_conversation_id": 4
+    "chatwoot_inbox_id": "62483"
   }
 }
 ```
@@ -217,7 +216,6 @@ Selber `kind`, aber **sofort gesendet** mit `send_now: true` und einer bestehend
 | `app_type` | Ja | `Apps::Chatwoot`. |
 | `app_id` | Ja | ID der Chatwoot-Integration. |
 | `additional_attributes.chatwoot_inbox_id` | Ja | Ziel-Inbox. |
-| `additional_attributes.chatwoot_conversation_id` | Ja | Conversation, an die gesendet wird. |
 
 ---
 

@@ -188,7 +188,7 @@ curl -X POST "https://app.woofedcrm.com/api/v1/accounts/1/deals/1/events" \
 
 ## 4. Enviar mensaje de Chatwoot inmediatamente
 
-Mismo `kind` que el anterior, pero **enviado inmediatamente** con `send_now: true` y el ID de una conversación existente.
+Mismo `kind` que el anterior, pero **enviado inmediatamente** con `send_now: true`.
 
 ### Body
 
@@ -201,8 +201,7 @@ Mismo `kind` que el anterior, pero **enviado inmediatamente** con `send_now: tru
   "app_type": "Apps::Chatwoot",
   "app_id": 5,
   "additional_attributes": {
-    "chatwoot_inbox_id": "62483",
-    "chatwoot_conversation_id": 4
+    "chatwoot_inbox_id": "62483"
   }
 }
 ```
@@ -217,7 +216,6 @@ Mismo `kind` que el anterior, pero **enviado inmediatamente** con `send_now: tru
 | `app_type` | Sí | `Apps::Chatwoot`. |
 | `app_id` | Sí | ID de la integración Chatwoot. |
 | `additional_attributes.chatwoot_inbox_id` | Sí | Inbox de destino. |
-| `additional_attributes.chatwoot_conversation_id` | Sí | Conversación que recibirá el mensaje. |
 
 ---
 
