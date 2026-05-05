@@ -1,0 +1,58 @@
+.auraWrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gridLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  -webkit-mask-image: radial-gradient(ellipse at top, black 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse at top, black 15%, transparent 75%);
+}
+
+.auraA {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  left: -120px;
+}
+
+.auraB {
+  width: 480px;
+  height: 480px;
+  top: -60px;
+  right: -140px;
+  animation-delay: -4s;
+}
+
+.auraC {
+  width: 380px;
+  height: 380px;
+  bottom: -120px;
+  right: 20%;
+  animation-delay: -10s;
+}
+
+.auraD {
+  width: 300px;
+  height: 300px;
+  bottom: -80px;
+  left: 10%;
+  animation-delay: -14s;
+}
+
+.auraWrap--subtle .auraA,
+.auraWrap--subtle .auraB {
+  opacity: 0.3;
+  filter: blur(110px);
+}
+
+.auraWrap--dense .auraA,
+.auraWrap--dense .auraB,
+.auraWrap--dense .auraC {
+  opacity: 0.7;
+}

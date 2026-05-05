@@ -1,56 +1,141 @@
+import React from 'react';
 import clsx from 'clsx';
+import Translate, { translate } from '@docusaurus/Translate';
 import Heading from '@theme/Heading';
+import { AuraBackground, Badge, Card } from '../DesignSystem';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Icon: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
+  badge?: string;
+  accent: 'purple' | 'green' | 'blue';
 };
+
+function ZapIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}>
+      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
+    </svg>
+  );
+}
+
+function TargetIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
+function CodeIcon(props: React.ComponentProps<'svg'>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}>
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+      <line x1="14" y1="4" x2="10" y2="20" />
+    </svg>
+  );
+}
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: translate({
+      id: 'homepage.features.easy.title',
+      message: 'Easy to Use',
+      description: 'Title for the "Easy to use" feature on the homepage',
+    }),
+    Icon: ZapIcon,
     description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+      <Translate
+        id="homepage.features.easy.description"
+        description="Description for the Easy to Use feature">
+        Woofed CRM was designed to be quick to install and effortless to operate
+        — your team can start managing leads in minutes, not weeks.
+      </Translate>
     ),
+    badge: 'fast setup',
+    accent: 'purple',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: translate({
+      id: 'homepage.features.focus.title',
+      message: 'Focus on What Matters',
+      description: 'Title for the "Focus on what matters" feature on the homepage',
+    }),
+    Icon: TargetIcon,
     description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+      <Translate
+        id="homepage.features.focus.description"
+        description="Description for the Focus on What Matters feature">
+        Pipelines, deal activities and metrics in one place — so your team can
+        spend energy on relationships, not on stitching tools together.
+      </Translate>
     ),
+    badge: 'all-in-one',
+    accent: 'blue',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: translate({
+      id: 'homepage.features.openSource.title',
+      message: 'Open & Self-hosted',
+      description: 'Title for the Open & Self-hosted feature on the homepage',
+    }),
+    Icon: CodeIcon,
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+      <Translate
+        id="homepage.features.openSource.description"
+        description="Description for the Open & Self-hosted feature">
+        Run Woofed CRM on your own infrastructure. Open source, extendable, and
+        powered by the same tooling your engineers already love.
+      </Translate>
     ),
+    badge: 'open source',
+    accent: 'green',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Icon, description, badge, accent }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <Card className={styles.featureCard} flashlight>
+        <div className={clsx(styles.iconBlock, styles[`iconBlock--${accent}`])}>
+          <Icon className={styles.iconSvg} aria-hidden="true" focusable="false" />
+        </div>
+        <div className={styles.featureBody}>
+          <div className={styles.featureMeta}>
+            {badge && <Badge variant="mono">{badge}</Badge>}
+          </div>
+          <Heading as="h3" className={styles.featureTitle}>
+            {title}
+          </Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
+      </Card>
     </div>
   );
 }
@@ -58,8 +143,37 @@ function Feature({title, Svg, description}: FeatureItem) {
 export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
+      <AuraBackground variant="subtle" />
+      <div className={clsx('container', styles.featuresContainer)}>
+        <header className={styles.featuresHeader}>
+          <Badge variant="mono" className={styles.featuresEyebrow}>
+            <span
+              className={clsx('woofed-animate-dotty', styles.eyebrowDot)}
+              aria-hidden="true"
+            />
+            <Translate
+              id="homepage.features.section.label"
+              description="Eyebrow label above the homepage feature grid">
+              Why Woofed CRM
+            </Translate>
+          </Badge>
+          <Heading as="h2" className={styles.featuresTitle}>
+            <Translate
+              id="homepage.features.section.title"
+              description="Section title above the homepage feature grid">
+              Built for teams that sell with care
+            </Translate>
+          </Heading>
+          <p className={styles.featuresSubtitle}>
+            <Translate
+              id="homepage.features.section.subtitle"
+              description="Section subtitle above the homepage feature grid">
+              A documentation hub for the open source CRM that puts pipelines,
+              automations, and clarity together.
+            </Translate>
+          </p>
+        </header>
+        <div className={clsx('row', styles.featureRow)}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
